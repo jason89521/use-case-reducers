@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import useCaseReducer from '../src';
 
 const init = (count: number) => {
-  console.log(count);
   return count;
 };
 

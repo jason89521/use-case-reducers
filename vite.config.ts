@@ -16,9 +16,9 @@ const buildLibConfig: UserConfigExport = {
   build: {
     lib: {
       // entry file
-      entry: 'src/index.tsx',
+      entry: 'src/index.ts',
       // lib name
-      name: 'InfiniteScroll',
+      name: 'use-case-reducer',
       fileName: type => `main.${type}.js`,
     },
     rollupOptions: {

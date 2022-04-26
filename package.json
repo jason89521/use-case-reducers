@@ -1,9 +1,13 @@
 {
   "name": "use-case-reducer",
   "version": "0.0.0",
-  "description": "my library",
+  "description": "A simplified version of React's useReducer, use this package to generate all actions automatically.",
   "keywords": [
-    "your library keywords"
+    "react",
+    "reducer",
+    "useReducer",
+    "case reducer",
+    "automatically generate actions"
   ],
   "files": [
     "dist",
