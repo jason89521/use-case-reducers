@@ -1,12 +1,3 @@
-import React from "react";
+import useCaseReducer from './useCaseReducer';
 
-function hello(packageName: string) {
-  return 'hello ' + packageName;
-}
-
-const Component = () => {
-  return <div>Hello component</div>;
-};
-
-export default hello;
-export { Component };
+export default useCaseReducer;

@@ -18,5 +18,13 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
+  "overrides": [
+    {
+      "files": "src/*",
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ],
   "rules": {}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "vite-react-lib-template",
+  "name": "use-case-reducer",
   "version": "0.0.0",
   "description": "my library",
   "keywords": [
@@ -21,9 +21,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jason89521/vite-react-lib-template"
+    "url": "https://github.com/jason89521/use-case-reducer"
   },
-  "homepage": "https://github.com/jason89521/vite-react-lib-template",
+  "homepage": "https://github.com/jason89521/use-case-reducer",
   "peerDependencies": {
     "react": ">=17.0.2"
   },
