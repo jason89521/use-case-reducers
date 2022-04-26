@@ -1,0 +1,45 @@
+{
+  "name": "vite-react-lib-template",
+  "version": "0.0.0",
+  "description": "my library",
+  "keywords": [
+    "your library keywords"
+  ],
+  "files": [
+    "dist",
+    "types"
+  ],
+  "main": "dist/main.umd.js",
+  "module": "dist/main.es.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --project tsconfig.lib.json && vite build --mode lib",
+    "build:demo": "tsc && vite build",
+    "prepare": "yarn build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jason89521/vite-react-lib-template"
+  },
+  "homepage": "https://github.com/jason89521/vite-react-lib-template",
+  "peerDependencies": {
+    "react": ">=17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "@vitejs/plugin-react": "^1.3.1",
+    "eslint": "^8.11.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.5"
+  },
+  "license": "MIT"
+}
