@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 
-import useCaseReducer from '../src';
+import useCaseReducers, { createCaseReducers } from '../src';
 
 const init = (count: number) => {
   return count;
 };
 
+const caseReducers = createCaseReducers(0, {
+  increment: state => state + 1,
+  add: (state, amount: number) => state + amount,
+});
+
 function App() {
-  const [state, dispatch] = useCaseReducer(
-    {
-      increment: state => state + 1,
-      add: (state, payload: number) => state + payload,
-    },
-    0,
-    init
-  );
+  const [state, dispatch] = useCaseReducers(caseReducers, 0, init);
 
   const [rerenderCounts, setRerenderCounts] = useState({ state: 0, dispatch: 0 });
 

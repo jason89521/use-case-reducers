@@ -1,3 +1,5 @@
-import useCaseReducer from './useCaseReducer';
+import useCaseReducers from './useCaseReducers';
+import createCaseReducers from './createCaseReducers';
 
-export default useCaseReducer;
+export default useCaseReducers;
+export { createCaseReducers };
