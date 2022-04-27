@@ -25,9 +25,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jason89521/use-case-reducer"
+    "url": "https://github.com/jason89521/use-case-reducers"
   },
-  "homepage": "https://github.com/jason89521/use-case-reducer",
+  "homepage": "https://github.com/jason89521/use-case-reducers",
   "peerDependencies": {
     "react": ">=17.0.2"
   },
