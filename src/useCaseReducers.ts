@@ -3,14 +3,10 @@ import { useReducer } from 'react';
 import type { CaseReducers } from './createReducer';
 import createReducer from './createReducer';
 
-import type { DispatchFromCRs, ArgOfCreateDispatch } from './createDispatch';
+import type { DispatchFromCRs } from './createDispatch';
 import createDispatch from './createDispatch';
 
-function emptyReducerForCreateReducer<S>(state: CaseReducers<S>) {
-  return state;
-}
-
-function emptyDispatchReducer<S, CRs extends CaseReducers<S>>(state: ArgOfCreateDispatch<S, CRs>) {
+function emptyReducer(state: any) {
   return state;
 }
 
@@ -30,10 +26,10 @@ function useCaseReducer<State, CRs extends CaseReducers<State>, Arg>(
   initialState: State | Arg,
   init?: (arg: Arg) => State
 ): [State, DispatchFromCRs<State, CRs>] {
-  const [reducer] = useReducer(emptyReducerForCreateReducer, caseReducers, createReducer as any);
+  const [reducer] = useReducer(emptyReducer, caseReducers, createReducer as any);
   const [state, reactDispatch] = useReducer(reducer as any, initialState as any, init as any);
   const [dispatch] = useReducer(
-    emptyDispatchReducer,
+    emptyReducer,
     { reactDispatch, caseReducers },
     createDispatch as any
   );
