@@ -1,6 +1,6 @@
 {
   "name": "use-case-reducers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simplified version of React's useReducer, use this package to generate all actions automatically.",
   "keywords": [
     "react",
