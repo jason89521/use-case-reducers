@@ -2,13 +2,12 @@ export type CaseReducer<S, Args extends any[] = any[]> = (state: S, ...payload: 
 export type CaseReducers<S> = Record<string, CaseReducer<S>>;
 
 export default function createReducer<S>(caseReducers: CaseReducers<S>) {
-  const reducerNames = Object.keys(caseReducers);
-  const reducer = (state: S, action: { type: string; payload: any[] }) =>
-    reducerNames.reduce((state, reducerName) => {
-      if (action.type !== reducerName) return state;
+  const reducer = (state: S, action: { type: string; payload: any[] }) => {
+    const type = action.type;
+    if (caseReducers[type] === undefined) throw new Error('The case reducer does not exist.');
 
-      return caseReducers[reducerName](state, ...action.payload);
-    }, state);
+    return caseReducers[type](state, ...action.payload);
+  };
 
   return reducer;
 }
