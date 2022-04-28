@@ -9,9 +9,9 @@
 - [Why use this package?](#why-use-this-package)
 - [What is a case reducer?](#what-is-a-case-reducer)
 - [API Reference](#api-reference)
-  - [`useCaseReducers`](#use-case-reducers)
+  - [`useCaseReducers`](#usecasereducers)
     - [The types of actions](#the-types-of-actions)
-  - [`createCaseReducers`](#create-case-reducers)
+  - [`createCaseReducers`](#createcasereducers)
 
 ## Why use this package
 
