@@ -18,7 +18,7 @@ const buildLibConfig: UserConfigExport = {
       // entry file
       entry: 'src/index.ts',
       // lib name
-      name: 'use-case-reducer',
+      name: 'use-case-reducers',
       fileName: type => `main.${type}.js`,
     },
     rollupOptions: {
