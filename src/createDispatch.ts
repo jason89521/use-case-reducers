@@ -24,7 +24,6 @@ export default function createDispatch<S, CRs extends CaseReducers<S>>({
   reactDispatch,
   caseReducers,
 }: ArgOfCreateDispatch<S, CRs>): DispatchFromCRs<S, CRs> {
-  console.log('create a dispatch');
   const reducerNames = Object.keys(caseReducers);
   const dispatch = {} as any;
   reducerNames.forEach(reducerName => {
