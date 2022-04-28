@@ -51,11 +51,15 @@ As you can see, writing a case reducer is very easy.
 
 ## API Reference
 
+### `useCaseReducers`
+
 ```js
+import useCaseReducers from 'use-case-reducers';
+
 const [state, dispatch] = useCaseReducers(caseReducers, initArg, init);
 ```
 
-The only difference between `useCaseReducers` and `useReducer` is the first parameter. In `useCaseReducers`, the first parameter is an object with all the case reducers you need. Here is an example:
+The only difference between `useCaseReducers` and `useReducer` is the first parameter and `dispatch`. The first parameter is an object with all the case reducers you need. The returned `dispatch` of `useCaseReducers` is not a function, but an object with all actions. Here is an example of how to use `useCaseReducers`:
 
 ```jsx
 const initialState = 0;
@@ -80,3 +84,79 @@ const Counter = () => {
   );
 };
 ```
+
+#### The types of actions
+
+There are two types of actions, `ActionWithoutPayload` and `ActionWithPayload`. To generate an action with type `ActionWithoutPayload`, the case reducer should be writed as:
+
+```js
+// no parameter
+const reset = () => 0;
+// the parameter only contains `state`
+const increment = state => state + 1;
+```
+
+Then the type of the returned `dispatch` will look like:
+
+```ts
+type Dispatch = {
+  reset: () => void;
+  increment: () => void;
+};
+```
+
+To generate an action with type `ActionWithPayload`, the case reducer should be writed as:
+
+```js
+const add = (state, amount) => state + amount;
+const sub = (state, amount) => state - amount;
+const addTwoAmount = (state, amount1, amount2) => state + amount1 + amount2;
+```
+
+Then the type of the returned `dispatch` will look like:
+
+```ts
+type Dispatch = {
+  add: (amount: number) => void;
+  sub: (amount: number) => void;
+  addTwoAmount: (amount1: number, amount2: number) => void;
+};
+```
+
+Note that you can use arbitrary number of parameters for your case reducer. The first parameter is the state, and the rest parameters are the payload of your action.
+
+When you call these methods of the returned `dispatch`, the corresponding action will be dispatched to the internal reducer.
+
+### `createCaseReducers`
+
+```ts
+import { createCaseReducers } from 'use-case-reducers';
+
+const typedCaseReducers = createCaseReducers(state, caseReducers);
+```
+
+If you are a typescript user, write a plain object of case reducers may be verbose. For example, if we want to write an object of case reducers to handle a state whose type is `number`, we should write something like the following code:
+
+```ts
+const caseReducers = {
+  increment: (state: number) => state + 1,
+  decrement: (state: number) => state - 1,
+  add: (state: number, amount: number) => state + amount,
+  sub: (state: number, amount: number) => state - amount,
+};
+```
+
+As you can see, although the type of the `state` is the same, we need to specify its type for every case reducer.
+
+An alternative solution is to use `createCaseReducers`. It can generate a well type defined object without specifing the type of `state` for every case reducer. Here is an example of how to use `createCaseReducers`:
+
+```ts
+const caseReducers = createCaseReducers(0, {
+  increment: state => state + 1,
+  decrement: state => state - 1,
+  add: (state, amount: number) => state + amount,
+  sub: (state, amount: number) => state - amount,
+});
+```
+
+The value of the first parameter does not important, just make sure that its type is the type of your state.
