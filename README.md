@@ -6,14 +6,14 @@
 
 ## Table of Contents
 
-- [Why use this package?](#Whyusethispackage)
-- [What is a case reducer?](#Whatisacasereducer)
-- [API Reference](#APIReference)
-  - [`useCaseReducers`](#useCaseReducers)
-    - [The types of actions](#Thetypesofactions)
-  - [`createCaseReducers`](#createCaseReducers)
+- [Why use this package?](#why-use-this-package)
+- [What is a case reducer?](#what-is-a-case-reducer)
+- [API Reference](#api-reference)
+  - [`useCaseReducers`](#use-case-reducers)
+    - [The types of actions](#the-types-of-actions)
+  - [`createCaseReducers`](#create-case-reducers)
 
-## 1. <a name='Whyusethispackage'></a>Why use this package?
+## Why use this package
 
 Although `useReducer` is great, writing a reducer is kind of annoying, especially when we need to handle more actions. Suppose we need to handle 10 actions with our state, then we need to write 10 `switch/case` of 10 `if/else` to deal with these actions. Sounds terrible, right?
 
@@ -30,7 +30,7 @@ Action creators help us writing cleaner code. But again, what if we need to hand
 
 `useCaseReducers` comes to the rescue! With `useCaseReducers`, we don't need to write a lot of `switch/case` and a lot of action creators. All we need to do is passing an object of case reducers, then `useCaseReducers` will generate a reducer and all action creators automatically.
 
-## 2. <a name='Whatisacasereducer'></a>What is a case reducer?
+## What is a case reducer
 
 The difference between a case reducer and a normal reducer is that a case reducer only handles one action while a normal reducer handles all actions. For example, if we use a reducer to handle a counter state, we may write:
 
@@ -60,9 +60,9 @@ const sub = (state, amount) => state - amount;
 
 As you can see, writing a case reducer is very easy.
 
-## 3. <a name='APIReference'></a>API Reference
+## API Reference
 
-### 3.1. <a name='useCaseReducers'></a>`useCaseReducers`
+### `useCaseReducers`
 
 ```js
 import useCaseReducers from 'use-case-reducers';
@@ -96,7 +96,7 @@ const Counter = () => {
 };
 ```
 
-#### 3.1.1. <a name='Thetypesofactions'></a>The types of actions
+#### The types of actions
 
 There are two types of actions, `ActionWithoutPayload` and `ActionWithPayload`. To generate an action with type `ActionWithoutPayload`, the case reducer should be writed as:
 
@@ -138,7 +138,7 @@ Note that you can use arbitrary number of parameters for your case reducer. The 
 
 When you call these methods of the returned `dispatch`, the corresponding action will be dispatched to the internal reducer.
 
-### 3.2. <a name='createCaseReducers'></a>`createCaseReducers`
+### `createCaseReducers`
 
 ```ts
 import { createCaseReducers } from 'use-case-reducers';
