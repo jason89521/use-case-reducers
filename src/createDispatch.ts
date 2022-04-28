@@ -15,10 +15,16 @@ export type DispatchFromCRs<S, CRs extends CaseReducers<S>> = {
   [Type in keyof CRs]: ActionFromCR<S, CRs[Type]>;
 };
 
-export default function createDispatch<S, CRs extends CaseReducers<S>>(
-  reactDispatch: React.Dispatch<any>,
-  caseReducers: CRs
-): DispatchFromCRs<S, CRs> {
+export type ArgOfCreateDispatch<S, CRs extends CaseReducers<S>> = {
+  reactDispatch: React.Dispatch<any>;
+  caseReducers: CRs;
+};
+
+export default function createDispatch<S, CRs extends CaseReducers<S>>({
+  reactDispatch,
+  caseReducers,
+}: ArgOfCreateDispatch<S, CRs>): DispatchFromCRs<S, CRs> {
+  console.log('create a dispatch');
   const reducerNames = Object.keys(caseReducers);
   const dispatch = {} as any;
   reducerNames.forEach(reducerName => {
