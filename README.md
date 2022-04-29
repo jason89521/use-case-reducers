@@ -184,3 +184,13 @@ const App = () => {
   );
 };
 ```
+
+### createActions
+
+```ts
+const actions = createActions<State, typeof caseReducers>(caseReducers);
+```
+
+If you only want to use action creators from your `caseReducers`, you can pass it to this function, then this function will return an object contains all action creators.
+
+### createReducer

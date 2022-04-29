@@ -1,8 +1,9 @@
-export type CaseReducer<S, Args extends any[] = any[]> = (state: S, ...payload: Args) => S;
-export type CaseReducers<S> = Record<string, CaseReducer<S>>;
+import type { CaseReducers } from './createCaseReducers';
+
+import type { Action } from './createActions';
 
 export default function createReducer<S>(caseReducers: CaseReducers<S>) {
-  const reducer = (state: S, action: { type: string; payload: any[] }) => {
+  const reducer = (state: S, action: Action) => {
     const type = action.type;
     if (caseReducers[type] === undefined) throw new Error('The case reducer does not exist.');
 

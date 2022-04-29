@@ -1,4 +1,4 @@
-import type { CaseReducers } from './createReducer';
+import type { CaseReducers } from './createCaseReducers';
 
 export type Action<P extends any[] = any[]> = { type: string; payload: P };
 export type ActionCreator<P extends any[] = []> = (...payload: P) => Action<P>;

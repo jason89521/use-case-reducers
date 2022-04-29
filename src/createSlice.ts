@@ -1,6 +1,6 @@
 import createActions from './createActions';
 
-import type { CaseReducers } from './createReducer';
+import type { CaseReducers } from './createCaseReducers';
 import createReducer from './createReducer';
 
 export default function createSlice<S, CRs extends CaseReducers<S>>(
