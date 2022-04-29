@@ -162,7 +162,7 @@ As you can see, although the type of the `state` is the same, we need to specify
 An alternative solution is to use `createCaseReducers`. It can generate a well type defined object without specifing the type of `state` for every case reducer. Here is an example of how to use `createCaseReducers`:
 
 ```ts
-const caseReducers = createCaseReducers(0, {
+const { initialState, caseReducers } = createCaseReducers(0, {
   increment: state => state + 1,
   decrement: state => state - 1,
   add: (state, amount: number) => state + amount,
