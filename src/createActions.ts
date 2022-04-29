@@ -1,6 +1,6 @@
 import type { CaseReducers } from './createReducer';
 
-export type Action<P extends any[] = []> = { type: string; payload: P };
+export type Action<P extends any[] = any[]> = { type: string; payload: P };
 export type ActionCreator<P extends any[] = []> = (...payload: P) => Action<P>;
 
 export type ActionFromCR<S, CR> = CR extends (state: S) => S
