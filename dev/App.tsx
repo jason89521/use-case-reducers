@@ -12,7 +12,7 @@ const { caseReducers } = createCaseReducers(0, {
 });
 
 function App() {
-  const [state, dispatch] = useCaseReducers(caseReducers, 0, init);
+  const [state, dispatch, actions] = useCaseReducers(caseReducers, 0, init);
 
   const [rerenderCounts, setRerenderCounts] = useState({ state: 0, dispatch: 0 });
 
@@ -29,8 +29,8 @@ function App() {
       <div>
         <div>state: {state}</div>
 
-        <button onClick={() => dispatch.increment()}>increment</button>
-        <button onClick={() => dispatch.add(10)}>add 10</button>
+        <button onClick={() => dispatch(actions.increment())}>increment</button>
+        <button onClick={() => dispatch(actions.add(10))}>add 10</button>
         <div>
           <div>state re-render counts: {rerenderCounts.state}</div>
           <div>dispatch re-render counts: {rerenderCounts.dispatch}</div>
