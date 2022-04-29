@@ -62,7 +62,7 @@ As you can see, writing a case reducer is very easy.
 
 ## API Reference
 
-### `useCaseReducers`
+### useCaseReducers
 
 ```js
 import useCaseReducers from 'use-case-reducers';
@@ -120,7 +120,7 @@ const caseReducers = {
 };
 ```
 
-### `createCaseReducers`
+### createCaseReducers
 
 ```ts
 import { createCaseReducers } from 'use-case-reducers';
@@ -153,3 +153,34 @@ const { initialState, caseReducers } = createCaseReducers(0, {
 ```
 
 Note that this function just simply returns the `_initialState` and `_caseReducers` you pass in. It can be helpful when you are using typescript.
+
+### createSlice
+
+```js
+const { initialState, reducer, actions } = createSlice(_initialState, caseReducers);
+```
+
+If you want to use React's `useReducer` directly, then this function may be helpful for you. It will generate a reducer and all actions creators you need. Here is an example of how to use:
+
+```jsx
+const {
+  initialState,
+  reducer,
+  actions: { increment, decrement },
+} = createSlice(0, {
+  increment: state => state + 1,
+  decrement: state => state - 1,
+});
+
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <div>{state}</div>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+    </div>
+  );
+};
+```

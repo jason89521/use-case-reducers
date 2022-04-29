@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext, createContext } from 'react';
+import React, { useEffect, useState, useContext, createContext, useReducer } from 'react';
 
-import useCaseReducers, { createCaseReducers, createActions } from '../src';
+import useCaseReducers, { createCaseReducers, createActions, createSlice, dispatch } from '../src';
 
 const init = (count: number) => {
   return count;
@@ -17,7 +17,9 @@ const { caseReducers } = createCaseReducers(0, {
 
 const actions = createActions<number, typeof caseReducers>(caseReducers);
 
-const Context = createContext(actions);
+const slice = createSlice(0, caseReducers);
+
+const Context = createContext({ dispatch, actions });
 
 function App() {
   const [state, dispatch, { add, increment }] = useCaseReducers(caseReducers, 0, init);
