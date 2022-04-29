@@ -4,11 +4,9 @@
 
 `useCaseReducers` simplifies the work when you are using React's `useReducer`. Its api is almost the same as `useReducer`, so there are just a few things that you need to learn if you have already been familiar with `useReducer`.
 
-## Table of Contents
-
 <!-- TOC -->
 
-- [Table of Contents](#table-of-contents)
+- [Get started](#get-started)
 - [Why use this package](#why-use-this-package)
 - [What is a case reducer](#what-is-a-case-reducer)
 - [API Reference](#api-reference)
@@ -21,6 +19,14 @@
   - [dispatch](#dispatch)
 
 <!-- /TOC -->
+
+## Get started
+
+```bash
+npm install use-case-reducers
+#or
+yarn add use-case-reducers
+```
 
 ## Why use this package
 
