@@ -8,18 +8,17 @@
 
 <!-- TOC -->
 
-- [Use Case Reducers](#use-case-reducers)
-  - [Table of Contents](#table-of-contents)
-  - [Why use this package](#why-use-this-package)
-  - [What is a case reducer](#what-is-a-case-reducer)
-  - [API Reference](#api-reference)
-    - [useCaseReducers](#usecasereducers)
-      - [The parameters for a case reducer](#the-parameters-for-a-case-reducer)
-    - [createCaseReducers](#createcasereducers)
-    - [createSlice](#createslice)
-    - [createActions](#createactions)
-    - [createReducer](#createreducer)
-    - [dispatch](#dispatch)
+- [Table of Contents](#table-of-contents)
+- [Why use this package](#why-use-this-package)
+- [What is a case reducer](#what-is-a-case-reducer)
+- [API Reference](#api-reference)
+  - [useCaseReducers](#usecasereducers)
+    - [The parameters for a case reducer](#the-parameters-for-a-case-reducer)
+  - [createCaseReducers](#createcasereducers)
+  - [createSlice](#createslice)
+  - [createActions](#createactions)
+  - [createReducer](#createreducer)
+  - [dispatch](#dispatch)
 
 <!-- /TOC -->
 
