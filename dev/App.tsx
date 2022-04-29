@@ -6,7 +6,7 @@ const init = (count: number) => {
   return count;
 };
 
-const caseReducers = createCaseReducers(0, {
+const { caseReducers } = createCaseReducers(0, {
   increment: state => state + 1,
   add: (state, amount: number) => state + amount,
 });

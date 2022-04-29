@@ -143,7 +143,7 @@ When you call these methods of the returned `dispatch`, the corresponding action
 ```ts
 import { createCaseReducers } from 'use-case-reducers';
 
-const typedCaseReducers = createCaseReducers(state, caseReducers);
+const { initialState, caseReducers } = createCaseReducers(_initialState, _caseReducers);
 ```
 
 If you are a typescript user, write a plain object of case reducers may be verbose. For example, if we want to write an object of case reducers to handle a state whose type is `number`, we should write something like the following code:
@@ -170,4 +170,4 @@ const caseReducers = createCaseReducers(0, {
 });
 ```
 
-The value of the first parameter does not important, just make sure that its type is the type of your state.
+Note that this function just simply returns the `_initialState` and `_caseReducers` you pass in. It can be helpful when you are using typescript.

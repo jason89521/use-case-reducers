@@ -1,7 +1,7 @@
 import type { CaseReducers } from './createReducer';
 
-function createCaseReducers<S, CRs extends CaseReducers<S>>(state: S, caseReducers: CRs) {
-  return caseReducers;
+function createCaseReducers<S, CRs extends CaseReducers<S>>(initialState: S, caseReducers: CRs) {
+  return { initialState, caseReducers };
 }
 
 export default createCaseReducers;
