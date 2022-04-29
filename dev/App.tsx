@@ -30,7 +30,7 @@ const Context = createContext({ dispatch, actions });
 
 function App() {
   const [state, dispatch, { add, increment }] = useCaseReducers(caseReducers, 0, init);
-
+  const [s, d] = useReducer(reducer, 0);
   const [rerenderCounts, setRerenderCounts] = useState({ state: 0, dispatch: 0 });
 
   useEffect(() => {
