@@ -1,25 +1,7 @@
-import { createReducer } from '../src';
+import { createReducer } from '..';
+import caseReducers from './caseReducers';
 
-type State = {
-  count: number;
-};
-
-const caseReducers = {
-  reset: () => {
-    return { count: 0 };
-  },
-  increment: (state: State) => {
-    return { count: state.count + 1 };
-  },
-  add: (state: State, amount: number) => {
-    return { count: state.count + amount };
-  },
-  addTwo: (state: State, amount1: number, amount2: number) => {
-    return { count: state.count + amount1 + amount2 };
-  },
-};
-
-describe('Test all types of case reducers', () => {
+describe('Generate a correct reducer', () => {
   const reducer = createReducer(caseReducers);
   const initialState = { count: 10 };
 
@@ -45,5 +27,10 @@ describe('Test all types of case reducers', () => {
     const action = { type: 'addTwo', payload: [10, 10] };
     const newState = reducer(initialState, action);
     expect(newState.count).toBe(30);
+  });
+
+  test('Test the non-exist case reducer', () => {
+    const action = { type: 'error', payload: [] };
+    expect(() => reducer(initialState, action)).toThrow('The case reducer does not exist.');
   });
 });
