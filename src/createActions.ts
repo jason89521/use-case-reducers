@@ -13,7 +13,7 @@ export type ActionsFromCRs<S, CRs extends CaseReducers<S>> = {
   [Type in keyof CRs]: ActionFromCR<S, CRs[Type]>;
 };
 
-export default function createActions<S, CRs extends CaseReducers<S>>(
+export default function createActions<S = any, CRs extends CaseReducers<S> = CaseReducers<any>>(
   caseReducers: CRs
 ): ActionsFromCRs<S, CRs> {
   const reducerNames = Object.keys(caseReducers);

@@ -3,7 +3,6 @@ import React, { useReducer, useState } from 'react';
 import type { CaseReducers } from './createCaseReducers';
 import type { Action, ActionsFromCRs } from './createActions';
 import createReducer from './createReducer';
-
 import createActions from './createActions';
 
 function useCaseReducer<State, CRs extends CaseReducers<State>>(

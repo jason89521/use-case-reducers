@@ -1,36 +1,25 @@
-import React, { useEffect, useState, useContext, createContext, useReducer } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import useCaseReducers, {
-  createCaseReducers,
-  createActions,
-  createSlice,
-  dispatch,
-  createReducer,
-} from '../src';
+import useCaseReducers, { createCaseReducers, createActions } from '../src';
 
 const init = (count: number) => {
-  return count;
+  return { count };
 };
 
-const { caseReducers } = createCaseReducers(0, {
-  increment: state => state + 1,
-  add: (state, amount: number) => state + amount,
-  addWithMsg: (state, amount: number, msg: string) => {
-    console.log(msg);
-    return state + amount;
-  },
-});
-
-const actions = createActions<number, typeof caseReducers>(caseReducers);
-const reducer = createReducer(caseReducers);
-
-const slice = createSlice(0, caseReducers);
-
-const Context = createContext({ dispatch, actions });
+const { caseReducers } = createCaseReducers(
+  { count: 0 },
+  {
+    increment: state => ({ count: state.count + 1 }),
+    add: (state, amount: number) => ({ count: state.count + amount }),
+    addWithMsg: (state, amount: number, msg: string) => {
+      console.log(msg);
+      return { count: state.count + amount };
+    },
+  }
+);
 
 function App() {
   const [state, dispatch, { add, increment }] = useCaseReducers(caseReducers, 0, init);
-  const [s, d] = useReducer(reducer, 0);
   const [rerenderCounts, setRerenderCounts] = useState({ state: 0, dispatch: 0 });
 
   useEffect(() => {
@@ -44,7 +33,7 @@ function App() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
       <div>
-        <div>state: {state}</div>
+        <div>state: {state.count}</div>
 
         <button onClick={() => dispatch(increment())}>increment</button>
         <button onClick={() => dispatch(add(10))}>add 10</button>
