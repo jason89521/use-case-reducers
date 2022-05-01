@@ -111,23 +111,7 @@
          * DEFAULT VALUE: "warning"
          */
         "logLevel": "warning"
-
-        /**
-         * When addToApiReportFile is true:  If API Extractor is configured to write an API report file (.api.md),
-         * then the message will be written inside that file; otherwise, the message is instead logged according to
-         * the "logLevel" option.
-         *
-         * DEFAULT VALUE: false
-         */
-        // "addToApiReportFile": false
       }
-
-      // "TS2551": {
-      //   "logLevel": "warning",
-      //   "addToApiReportFile": true
-      // },
-      //
-      // . . .
     },
 
     /**
@@ -144,9 +128,6 @@
       },
       "ae-missing-release-tag": {
         "logLevel": "none"
-      },
-      "ae-forgotten-export": {
-        "logLevel": "none"
       }
     },
 
@@ -162,13 +143,6 @@
         "logLevel": "warning"
         // "addToApiReportFile": false
       }
-
-      // "tsdoc-link-tag-unescaped-text": {
-      //   "logLevel": "warning",
-      //   "addToApiReportFile": true
-      // },
-      //
-      // . . .
     }
   }
 }
