@@ -30,7 +30,7 @@ function useCaseReducer<State, CRs extends CaseReducers<State>, Arg>(
 
 export const dispatch: React.Dispatch<Action> = () => {
   throw new Error(
-    "This function is provided for context default only. It seems that your app doesn't have a context provider."
+    "This function is provided for context's default only. It seems that your app doesn't have a context provider."
   );
 };
 
