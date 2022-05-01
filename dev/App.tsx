@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import useCaseReducers, { createCaseReducers, createActions } from '../src';
+import useCaseReducers, { createCaseReducers } from '../src';
 
 const init = (count: number) => {
   return { count };
