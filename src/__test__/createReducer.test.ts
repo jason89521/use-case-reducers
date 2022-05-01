@@ -1,5 +1,5 @@
 import { createReducer } from '..';
-import caseReducers from './caseReducers';
+import { caseReducers } from './caseReducers';
 
 describe('Generate a correct reducer', () => {
   const reducer = createReducer(caseReducers);

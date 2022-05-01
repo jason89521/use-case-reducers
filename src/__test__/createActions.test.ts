@@ -1,5 +1,5 @@
 import { createActions } from '..';
-import caseReducers from './caseReducers';
+import { caseReducers } from './caseReducers';
 
 test('Generate a correct actions object', () => {
   const actions = createActions(caseReducers);

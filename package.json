@@ -17,6 +17,7 @@
   "types": "dist/use-case-reducers.d.ts",
   "scripts": {
     "dev": "vite",
+    "test": "jest",
     "build:demo": "tsc && vite build",
     "build:types": "rimraf types/* && tsc --project tsconfig.lib.json",
     "build": "yarn build:types && vite build --mode lib && api-extractor run",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.23.0",
+    "@testing-library/react-hooks": "^8.0.0",
     "@types/jest": "^27.4.1",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.0",
