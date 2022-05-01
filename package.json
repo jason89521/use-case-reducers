@@ -17,7 +17,6 @@
   "types": "dist/use-case-reducers.d.ts",
   "scripts": {
     "dev": "vite",
-    "test": "jest",
     "build:demo": "tsc && vite build",
     "build:types": "rimraf types/* && tsc --project tsconfig.lib.json",
     "build": "yarn build:types && vite build --mode lib && api-extractor run",
