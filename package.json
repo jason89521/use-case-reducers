@@ -1,6 +1,6 @@
 {
   "name": "use-case-reducers",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simplified version of React's useReducer, use this package to generate all actions automatically.",
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
     "build:demo": "tsc && vite build",
     "build:types": "rimraf types/* && tsc --project tsconfig.lib.json",
     "build": "yarn build:types && vite build --mode lib && api-extractor run",
-    "prepare": "yarn build",
+    "prepare": "yarn test && yarn build",
     "preview": "vite preview"
   },
   "repository": {
